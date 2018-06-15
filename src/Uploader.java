@@ -2,7 +2,6 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -45,13 +44,16 @@ public class Uploader
 
 	public static void main(String[] args)
 	{
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Digite o endereço do Host.");
-		String hostName = new Scanner(System.in).nextLine();
+		String hostName = scanner.nextLine();
 		
 		File file;
 		System.out.println("Digite o nome do arquivo a ser enviado.");
-		String fileName = new Scanner(System.in).nextLine();
+		String fileName = scanner.nextLine();
 		file = new File(fileName);
+		
+		scanner.close();
 		
 		if(!file.exists())
 		{
